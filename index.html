@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a1628;
+            color: #e0e0e0;
+        }
+
+
+        /* Navigation */
+
+        header {
+            background: #0f2847;
+            border-bottom: 1px solid #1e4d7b;
+        }
+
+        .navbar {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-picker {
+            position: relative;
+        }
+
+        .language-select {
+            appearance: none;
+            background: #173a61;
+            border: 1px solid #4d82b2;
+            border-radius: 6px;
+            color: #e4f2ff;
+            cursor: pointer;
+            font: inherit;
+            padding: 9px 34px 9px 12px;
+        }
+
+        .language-picker::after {
+            color: #a0d4ff;
+            content: "▾";
+            pointer-events: none;
+            position: absolute;
+            right: 12px;
+            top: 8px;
+        }
+
+        .language-select:focus {
+            outline: 2px solid #66aaff;
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+        }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #a0d4ff;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #0066ff;
+        }
+
+
+        /* Hero */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .welcome {
+            color: #0066ff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 75px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: #a0d4ff;
+        }
+
+        .hero h2 {
+            font-size: 55px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero h2 span {
+            color: #0066ff;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+
+        /* Buttons */
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #0066ff;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+        .button:hover {
+            opacity: 0.85;
+        }
+
+        .button.whatsapp {
+            background: #16a05d;
+        }
+
+        .button.secondary {
+            background: white;
+            color: #0066ff;
+            border: 1px solid #0066ff;
+        }
+
+
+        /* Sections */
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .section > p {
+            max-width: 700px;
+            margin: 10px auto;
+            line-height: 1.7;
+            color: #a0a0a0;
+        }
+
+
+        /* Services */
+
+        .services {
+            max-width: 1200px;
+        }
+
+        .service-container {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #1a3a52;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: left;
+            border: 1px solid #2e5a8c;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+
+        /* Contact */
+
+        .contact {
+            background: #1a3a52;
+            border-radius: 15px;
+            margin-bottom: 60px;
+        }
+
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #111;
+            color: white;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 40px;
+            }
+
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">kavid tec</div>
+            <div class="nav-links">
+                <a href="#home" data-i18n="navHome">Home</a>
+                <a href="#services" data-i18n="navServices">Services</a>
+                <a href="#contact" data-i18n="navContact">Contact</a>
+            </div>
+            <label class="language-picker">
+                <span class="sr-only">Choose language</span>
+                <select class="language-select" id="languageSelect" aria-label="Choose language">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="zh">中文</option>
+                    <option value="th">ไทย</option>
+                </select>
+            </label>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>KAVID <span>TEC</span></h1>
+            <p class="welcome" data-i18n="welcome">Welcome</p>
+            <h2><span data-i18n="build">Build Something</span> <span data-i18n="amazing">Amazing</span></h2>
+            <p data-i18n="heroDescription">Create beautiful websites with our modern design system and powerful tools.</p>
+            <div class="buttons">
+                <a href="project-request.html" class="button" data-i18n="getStarted">Get Started</a>
+                <a href="about.html" class="button secondary" data-i18n="learnMore">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section services" id="services">
+        <h2 data-i18n="servicesTitle">Our Services</h2>
+        <p data-i18n="servicesDescription">We provide comprehensive solutions for your web development needs.</p>
+        <div class="service-container">
+            <div class="service-card">
+                <h3 data-i18n="webDesign">Web Design</h3>
+                <p data-i18n="webDesignDescription">Create stunning and responsive designs that captivate your audience and deliver results.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="development">Development</h3>
+                <p data-i18n="developmentDescription">Build robust and scalable applications using modern technologies and best practices.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="optimization">Optimization</h3>
+                <p data-i18n="optimizationDescription">Improve performance and user experience with advanced optimization techniques.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="support">Support</h3>
+                <p data-i18n="supportDescription">Get dedicated support and maintenance to keep your website running smoothly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <h2 data-i18n="contactTitle">Get In Touch</h2>
+        <p data-i18n="contactDescription">Ready to start your project? Contact us today!</p>
+        <div class="buttons">
+            <a href="mailto:kd901468@gmail.com" class="button" data-i18n="sendEmail">Send Email</a>
+            <a href="https://wa.me/2177166081" class="button whatsapp" target="_blank" rel="noopener" data-i18n="whatsappContact">Chat on WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; kavid tec. All rights reserved.</p>
+        <p data-i18n="footerTagline">Designed with care and built with passion.</p>
+    </footer>
+    <script>
+        const translations = {
+            en: {
+                navHome: "Home", navServices: "Services", navContact: "Contact", welcome: "Welcome",
+                build: "Build Something", amazing: "Amazing", heroDescription: "Create beautiful websites with our modern design system and powerful tools.",
+                getStarted: "Get Started", learnMore: "Learn More", servicesTitle: "Our Services",
+                servicesDescription: "We provide comprehensive solutions for your web development needs.", webDesign: "Web Design",
+                webDesignDescription: "Create stunning and responsive designs that captivate your audience and deliver results.", development: "Development",
+                developmentDescription: "Build robust and scalable applications using modern technologies and best practices.", optimization: "Optimization",
+                optimizationDescription: "Improve performance and user experience with advanced optimization techniques.", support: "Support",
+                supportDescription: "Get dedicated support and maintenance to keep your website running smoothly.", contactTitle: "Get In Touch",
+                contactDescription: "Ready to start your project? Contact us today!", sendEmail: "Send Email", whatsappContact: "Chat on WhatsApp", footerTagline: "Designed with care and built with passion."
+            },
+            fr: {
+                navHome: "Accueil", navServices: "Services", navContact: "Contact", welcome: "Bienvenue", build: "Construisez quelque chose", amazing: "d'exception",
+                heroDescription: "Créez de magnifiques sites web avec notre système de design moderne et nos outils puissants.", getStarted: "Commencer", learnMore: "En savoir plus",
+                servicesTitle: "Nos services", servicesDescription: "Nous proposons des solutions complètes pour vos besoins en développement web.", webDesign: "Design web",
+                webDesignDescription: "Créez des designs élégants et responsives qui captivent votre audience et produisent des résultats.", development: "Développement",
+                developmentDescription: "Construisez des applications robustes et évolutives avec des technologies modernes et de bonnes pratiques.", optimization: "Optimisation",
+                optimizationDescription: "Améliorez les performances et l'expérience utilisateur grâce à des techniques d'optimisation avancées.", support: "Assistance",
+                supportDescription: "Bénéficiez d'une assistance et d'une maintenance dédiées pour un site toujours performant.", contactTitle: "Contactez-nous",
+                contactDescription: "Prêt à démarrer votre projet ? Contactez-nous dès aujourd'hui !", sendEmail: "Envoyer un e-mail", whatsappContact: "Discuter sur WhatsApp", footerTagline: "Conçu avec soin et réalisé avec passion."
+            },
+            zh: {
+                navHome: "首页", navServices: "服务", navContact: "联系", welcome: "欢迎", build: "打造精彩作品", amazing: "令人惊叹",
+                heroDescription: "使用我们现代的设计系统和强大工具，创建精美的网站。", getStarted: "开始使用", learnMore: "了解更多", servicesTitle: "我们的服务",
+                servicesDescription: "我们为您的网站开发需求提供全面的解决方案。", webDesign: "网页设计", webDesignDescription: "创建令人惊艳且响应迅速的设计，吸引您的受众并带来成果。",
+                development: "开发", developmentDescription: "使用现代技术和最佳实践，构建稳健且可扩展的应用程序。", optimization: "优化", optimizationDescription: "通过先进的优化技术提升性能和用户体验。",
+                support: "支持", supportDescription: "获得专属支持和维护，让您的网站顺畅运行。", contactTitle: "联系我们", contactDescription: "准备开始您的项目了吗？立即联系我们！", sendEmail: "发送邮件", whatsappContact: "在 WhatsApp 上聊天", footerTagline: "用心设计，满怀热情打造。"
+            },
+            th: {
+                navHome: "หน้าแรก", navServices: "บริการ", navContact: "ติดต่อ", welcome: "ยินดีต้อนรับ", build: "สร้างสิ่งที่", amazing: "ยอดเยี่ยม",
+                heroDescription: "สร้างเว็บไซต์ที่สวยงามด้วยระบบการออกแบบที่ทันสมัยและเครื่องมืออันทรงพลังของเรา", getStarted: "เริ่มต้นใช้งาน", learnMore: "เรียนรู้เพิ่มเติม", servicesTitle: "บริการของเรา",
+                servicesDescription: "เรานำเสนอโซลูชันครบวงจรสำหรับความต้องการด้านการพัฒนาเว็บไซต์ของคุณ", webDesign: "การออกแบบเว็บไซต์", webDesignDescription: "สร้างดีไซน์ที่สวยงามและรองรับทุกหน้าจอ เพื่อดึงดูดผู้ชมและสร้างผลลัพธ์",
+                development: "การพัฒนา", developmentDescription: "สร้างแอปพลิเคชันที่แข็งแกร่งและขยายได้ด้วยเทคโนโลยีสมัยใหม่และแนวทางปฏิบัติที่ดีที่สุด", optimization: "การเพิ่มประสิทธิภาพ", optimizationDescription: "ปรับปรุงประสิทธิภาพและประสบการณ์ผู้ใช้ด้วยเทคนิคขั้นสูง",
+                support: "การสนับสนุน", supportDescription: "รับการสนับสนุนและการดูแลโดยเฉพาะ เพื่อให้เว็บไซต์ของคุณทำงานได้อย่างราบรื่น", contactTitle: "ติดต่อเรา", contactDescription: "พร้อมเริ่มโครงการของคุณแล้วหรือยัง ติดต่อเราวันนี้!", sendEmail: "ส่งอีเมล", whatsappContact: "แชทบน WhatsApp", footerTagline: "ออกแบบด้วยความใส่ใจและสร้างสรรค์ด้วยความมุ่งมั่น"
+            }
+        };
+
+        const languageSelect = document.getElementById("languageSelect");
+        const setLanguage = (language) => {
+            document.documentElement.lang = language;
+            document.querySelectorAll("[data-i18n]").forEach((element) => {
+                element.textContent = translations[language][element.dataset.i18n];
+            });
+            localStorage.setItem("kavidTecLanguage", language);
+        };
+
+        languageSelect.addEventListener("change", (event) => setLanguage(event.target.value));
+        const savedLanguage = localStorage.getItem("kavidTecLanguage") || "en";
+        languageSelect.value = savedLanguage;
+        setLanguage(savedLanguage);
+    </script>
+</body>
+</html>
