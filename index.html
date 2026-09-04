@@ -17,15 +17,31 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #0a1628;
+            background: #0a1628 url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=2200&q=85") center / cover fixed;
             color: #e0e0e0;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            background: rgba(10, 22, 40, 0.91);
+            content: "";
+            inset: 0;
+            pointer-events: none;
+            position: fixed;
+            z-index: 0;
+        }
+
+        body > * {
+            position: relative;
+            z-index: 1;
         }
 
 
         /* Navigation */
 
         header {
-            background: #0f2847;
+            background: rgba(15, 40, 71, 0.88);
             border-bottom: 1px solid #1e4d7b;
         }
 
@@ -91,22 +107,28 @@
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: #a0d4ff;
+            background: #173a61;
+            border: 1px solid #4d82b2;
+            border-radius: 6px;
+            color: #e4f2ff;
             font-weight: 500;
+            padding: 9px 15px;
+            text-decoration: none;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: #0066ff;
+            background: #0066ff;
+            border-color: #66aaff;
+            color: #fff;
+            transform: translateY(-2px);
         }
 
 
         /* Hero */
 
         .hero {
-            background:
-                radial-gradient(circle at 50% 45%, rgba(20, 91, 145, 0.2), transparent 38%),
-                linear-gradient(135deg, #0a1628 0%, #0c2038 100%);
+            background: rgba(10, 22, 40, 0.58);
             min-height: 85vh;
             overflow: hidden;
             position: relative;
@@ -124,6 +146,7 @@
         }
 
         .tech-collage {
+            display: none;
             inset: 0;
             pointer-events: none;
             position: absolute;
@@ -157,8 +180,17 @@
             margin-bottom: 15px;
         }
 
+        .project-prompt {
+            color: #c4d6e5;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+        }
+
         .hero h1 {
-            font-size: 75px;
+            font-size: 68px;
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 15px;
@@ -170,9 +202,10 @@
         }
 
         .hero h2 {
-            font-size: 55px;
+            font-size: 72px;
             line-height: 1.1;
             margin-bottom: 25px;
+            color: #a0d4ff;
         }
 
         .hero h2 span {
@@ -183,6 +216,17 @@
             color: #c4d6e5;
             font-size: 18px;
             line-height: 1.7;
+        }
+
+        .hero .hero-description {
+            font-size: 22px;
+            margin: 0 auto;
+            max-width: 820px;
+        }
+
+        .hero .welcome {
+            margin-bottom: 12px;
+            text-transform: uppercase;
         }
 
 
@@ -306,7 +350,7 @@
         footer {
             text-align: center;
             padding: 30px;
-            background: #111;
+            background: rgba(17, 17, 17, 0.9);
             color: white;
         }
 
@@ -328,8 +372,12 @@
                 gap: 15px;
             }
 
+            .hero h1 {
+                font-size: 48px;
+            }
+
             .hero h2 {
-                font-size: 40px;
+                font-size: 48px;
             }
 
             .tech-image {
@@ -360,7 +408,6 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">kavid tec</div>
             <div class="nav-links">
                 <a href="#home" data-i18n="navHome">Home</a>
                 <a href="#services" data-i18n="navServices">Services</a>
@@ -385,12 +432,13 @@
             <img class="tech-image bottom" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=700&q=80" alt="">
         </div>
         <div class="hero-content">
-            <h1>KAVID <span>TEC</span></h1>
-            <p class="welcome" data-i18n="welcome">Welcome</p>
-            <h2><span data-i18n="build">Build Something</span> <span data-i18n="amazing">Amazing</span></h2>
-            <p data-i18n="heroDescription">Create beautiful websites with our modern design system and powerful tools.</p>
+            <h1 data-i18n="buildTogether">Let's Build Something Together</h1>
+            <p class="project-prompt" data-i18n="projectPrompt">Do You Have a Project in Mind?</p>
+            <p class="welcome" data-i18n="welcome">Welcome To</p>
+            <h2>KAVID <span>TECH</span></h2>
+            <p class="hero-description" data-i18n="heroDescription">we build digital products that move businesses, ideas, and innovations forward into a new computer age. websites, web apps, and digital solutions. it all starts here.</p>
             <div class="buttons">
-                <a href="project-request.html" class="button" data-i18n="getStarted">Get Started</a>
+                <a href="project-request.html" class="button" data-i18n="getStarted">start a project</a>
                 <a href="about.html" class="button secondary" data-i18n="learnMore">Learn More</a>
             </div>
         </div>
@@ -400,22 +448,11 @@
         <h2 data-i18n="servicesTitle">Our Services</h2>
         <p data-i18n="servicesDescription">We provide comprehensive solutions for your web development needs.</p>
         <div class="service-container">
-            <div class="service-card">
-                <h3 data-i18n="webDesign">Web Design</h3>
-                <p data-i18n="webDesignDescription">Create stunning and responsive designs that captivate your audience and deliver results.</p>
-            </div>
-            <div class="service-card">
-                <h3 data-i18n="development">Development</h3>
-                <p data-i18n="developmentDescription">Build robust and scalable applications using modern technologies and best practices.</p>
-            </div>
-            <div class="service-card">
-                <h3 data-i18n="optimization">Optimization</h3>
-                <p data-i18n="optimizationDescription">Improve performance and user experience with advanced optimization techniques.</p>
-            </div>
-            <div class="service-card">
-                <h3 data-i18n="support">Support</h3>
-                <p data-i18n="supportDescription">Get dedicated support and maintenance to keep your website running smoothly.</p>
-            </div>
+            <div class="service-card"><h3 data-i18n="webDevelopment">web development</h3></div>
+            <div class="service-card"><h3 data-i18n="webApplications">web applications</h3></div>
+            <div class="service-card"><h3 data-i18n="ecommerce">e-commerce</h3></div>
+            <div class="service-card"><h3 data-i18n="maintenance">maintenances</h3></div>
+            <div class="service-card"><h3 data-i18n="webCreations">web creations</h3></div>
         </div>
         <div class="service-gallery" aria-hidden="true">
             <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=800&q=80" alt="">
@@ -434,16 +471,16 @@
     </section>
 
     <footer>
-        <p>&copy; kavid tec. All rights reserved.</p>
+        <p>&copy; kavid tech. All rights reserved.</p>
         <p data-i18n="footerTagline">Designed with care and built with passion.</p>
     </footer>
     <script>
         const translations = {
             en: {
-                navHome: "Home", navServices: "Services", navContact: "Contact", welcome: "Welcome",
-                build: "Build Something", amazing: "Amazing", heroDescription: "Create beautiful websites with our modern design system and powerful tools.",
-                getStarted: "Get Started", learnMore: "Learn More", servicesTitle: "Our Services",
-                servicesDescription: "We provide comprehensive solutions for your web development needs.", webDesign: "Web Design",
+                navHome: "Home", navServices: "Services", navContact: "Contact", welcome: "Welcome To",
+                buildTogether: "Let's Build Something Together", projectPrompt: "Do You Have a Project in Mind?", brandName: "KAVID TECH", heroDescription: "we build digital products that move businesses, ideas, and innovations forward into a new computer age. websites, web apps, and digital solutions. it all starts here.",
+                getStarted: "start a project", learnMore: "Learn More", servicesTitle: "Our Services",
+                servicesDescription: "We provide comprehensive solutions for your web development needs.", webDevelopment: "web development", webApplications: "web applications", ecommerce: "e-commerce", maintenance: "maintenances", webCreations: "web creations", webDesign: "Web Design",
                 webDesignDescription: "Create stunning and responsive designs that captivate your audience and deliver results.", development: "Development",
                 developmentDescription: "Build robust and scalable applications using modern technologies and best practices.", optimization: "Optimization",
                 optimizationDescription: "Improve performance and user experience with advanced optimization techniques.", support: "Support",
@@ -451,9 +488,9 @@
                 contactDescription: "Ready to start your project? Contact us today!", sendEmail: "Send Email", whatsappContact: "Chat on WhatsApp", footerTagline: "Designed with care and built with passion."
             },
             fr: {
-                navHome: "Accueil", navServices: "Services", navContact: "Contact", welcome: "Bienvenue", build: "Construisez quelque chose", amazing: "d'exception",
+                navHome: "Accueil", navServices: "Services", navContact: "Contact", welcome: "Bienvenue", buildTogether: "Construisons quelque chose ensemble", projectPrompt: "Avez-vous un projet en tête ?", brandName: "KAVID TECH", build: "Construisez quelque chose", amazing: "d'exception",
                 heroDescription: "Créez de magnifiques sites web avec notre système de design moderne et nos outils puissants.", getStarted: "Commencer", learnMore: "En savoir plus",
-                servicesTitle: "Nos services", servicesDescription: "Nous proposons des solutions complètes pour vos besoins en développement web.", webDesign: "Design web",
+                servicesTitle: "Nos services", servicesDescription: "Nous proposons des solutions complètes pour vos besoins en développement web.", webDevelopment: "développement web", webApplications: "applications web", ecommerce: "e-commerce", maintenance: "maintenance", webCreations: "créations web", webDesign: "Design web",
                 webDesignDescription: "Créez des designs élégants et responsives qui captivent votre audience et produisent des résultats.", development: "Développement",
                 developmentDescription: "Construisez des applications robustes et évolutives avec des technologies modernes et de bonnes pratiques.", optimization: "Optimisation",
                 optimizationDescription: "Améliorez les performances et l'expérience utilisateur grâce à des techniques d'optimisation avancées.", support: "Assistance",
@@ -461,16 +498,16 @@
                 contactDescription: "Prêt à démarrer votre projet ? Contactez-nous dès aujourd'hui !", sendEmail: "Envoyer un e-mail", whatsappContact: "Discuter sur WhatsApp", footerTagline: "Conçu avec soin et réalisé avec passion."
             },
             zh: {
-                navHome: "首页", navServices: "服务", navContact: "联系", welcome: "欢迎", build: "打造精彩作品", amazing: "令人惊叹",
+                navHome: "首页", navServices: "服务", navContact: "联系", welcome: "欢迎", buildTogether: "让我们一起创造精彩", projectPrompt: "您有项目想法吗？", brandName: "KAVID TECH", build: "打造精彩作品", amazing: "令人惊叹",
                 heroDescription: "使用我们现代的设计系统和强大工具，创建精美的网站。", getStarted: "开始使用", learnMore: "了解更多", servicesTitle: "我们的服务",
-                servicesDescription: "我们为您的网站开发需求提供全面的解决方案。", webDesign: "网页设计", webDesignDescription: "创建令人惊艳且响应迅速的设计，吸引您的受众并带来成果。",
+                servicesDescription: "我们为您的网站开发需求提供全面的解决方案。", webDevelopment: "网页开发", webApplications: "网页应用", ecommerce: "电子商务", maintenance: "维护服务", webCreations: "网页创作", webDesign: "网页设计", webDesignDescription: "创建令人惊艳且响应迅速的设计，吸引您的受众并带来成果。",
                 development: "开发", developmentDescription: "使用现代技术和最佳实践，构建稳健且可扩展的应用程序。", optimization: "优化", optimizationDescription: "通过先进的优化技术提升性能和用户体验。",
                 support: "支持", supportDescription: "获得专属支持和维护，让您的网站顺畅运行。", contactTitle: "联系我们", contactDescription: "准备开始您的项目了吗？立即联系我们！", sendEmail: "发送邮件", whatsappContact: "在 WhatsApp 上聊天", footerTagline: "用心设计，满怀热情打造。"
             },
             th: {
-                navHome: "หน้าแรก", navServices: "บริการ", navContact: "ติดต่อ", welcome: "ยินดีต้อนรับ", build: "สร้างสิ่งที่", amazing: "ยอดเยี่ยม",
+                navHome: "หน้าแรก", navServices: "บริการ", navContact: "ติดต่อ", welcome: "ยินดีต้อนรับ", buildTogether: "มาสร้างสิ่งต่างๆ ไปด้วยกัน", projectPrompt: "คุณมีโครงการในใจหรือไม่?", brandName: "KAVID TECH", build: "สร้างสิ่งที่", amazing: "ยอดเยี่ยม",
                 heroDescription: "สร้างเว็บไซต์ที่สวยงามด้วยระบบการออกแบบที่ทันสมัยและเครื่องมืออันทรงพลังของเรา", getStarted: "เริ่มต้นใช้งาน", learnMore: "เรียนรู้เพิ่มเติม", servicesTitle: "บริการของเรา",
-                servicesDescription: "เรานำเสนอโซลูชันครบวงจรสำหรับความต้องการด้านการพัฒนาเว็บไซต์ของคุณ", webDesign: "การออกแบบเว็บไซต์", webDesignDescription: "สร้างดีไซน์ที่สวยงามและรองรับทุกหน้าจอ เพื่อดึงดูดผู้ชมและสร้างผลลัพธ์",
+                servicesDescription: "เรานำเสนอโซลูชันครบวงจรสำหรับความต้องการด้านการพัฒนาเว็บไซต์ของคุณ", webDevelopment: "การพัฒนาเว็บไซต์", webApplications: "เว็บแอปพลิเคชัน", ecommerce: "อีคอมเมิร์ซ", maintenance: "การบำรุงรักษา", webCreations: "การสร้างเว็บไซต์", webDesign: "การออกแบบเว็บไซต์", webDesignDescription: "สร้างดีไซน์ที่สวยงามและรองรับทุกหน้าจอ เพื่อดึงดูดผู้ชมและสร้างผลลัพธ์",
                 development: "การพัฒนา", developmentDescription: "สร้างแอปพลิเคชันที่แข็งแกร่งและขยายได้ด้วยเทคโนโลยีสมัยใหม่และแนวทางปฏิบัติที่ดีที่สุด", optimization: "การเพิ่มประสิทธิภาพ", optimizationDescription: "ปรับปรุงประสิทธิภาพและประสบการณ์ผู้ใช้ด้วยเทคนิคขั้นสูง",
                 support: "การสนับสนุน", supportDescription: "รับการสนับสนุนและการดูแลโดยเฉพาะ เพื่อให้เว็บไซต์ของคุณทำงานได้อย่างราบรื่น", contactTitle: "ติดต่อเรา", contactDescription: "พร้อมเริ่มโครงการของคุณแล้วหรือยัง ติดต่อเราวันนี้!", sendEmail: "ส่งอีเมล", whatsappContact: "แชทบน WhatsApp", footerTagline: "ออกแบบด้วยความใส่ใจและสร้างสรรค์ด้วยความมุ่งมั่น"
             }
