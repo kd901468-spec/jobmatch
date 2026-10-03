@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" role="img" aria-labelledby="title">
+  <title id="title">Kavid Tech</title>
+  <defs>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb000"/>
+      <stop offset="1" stop-color="#ff3b08"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#orange)" stroke-linecap="round" stroke-width="5">
+    <path d="M12 65C38 18 91 8 116 19c27 12-3 55-43 76"/>
+    <path d="M18 77c25 23 75 17 111-9"/>
+  </g>
+  <path fill="url(#orange)" d="M35 28h17v25l24-25h22L70 57l30 34H78L52 62v29H35z"/>
+  <path fill="url(#orange)" d="M91 35h35v13h-11v43H98V48H86z"/>
+  <text x="148" y="80" fill="url(#orange)" font-family="Arial, Helvetica, sans-serif" font-size="51" font-weight="900" letter-spacing="1">KAVID</text>
+  <text x="340" y="80" fill="#f7f7f7" font-family="Arial, Helvetica, sans-serif" font-size="51" font-weight="900" letter-spacing="1">TECH</text>
+  <path d="M151 96h335" stroke="#ff5b16" stroke-width="2" opacity=".8"/>
+</svg>

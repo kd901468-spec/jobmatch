@@ -30,8 +30,9 @@ header {
     backdrop-filter: blur(18px);
 }
 .navbar { max-width: 1280px !important; min-height: 76px; padding: 14px 28px !important; gap: 24px; }
-.logo { color: var(--paper) !important; font-size: 23px !important; font-weight: 800; letter-spacing: -1.1px; text-decoration: none; }
-.logo::before { content: '✳'; color: var(--accent); margin-right: 9px; }
+.logo { display: flex; align-items: center; color: var(--paper) !important; text-decoration: none; line-height: 0; }
+.logo::before { content: none; }
+.brand-logo { display: block; width: clamp(155px, 19vw, 220px); height: auto; }
 .nav-links { gap: 10px !important; }
 .nav-links a { color: #c5c3bf !important; font-size: 13px; font-weight: 700 !important; padding: 9px 13px; border-radius: 999px; text-decoration: none; }
 .nav-links a:hover { color: var(--paper) !important; background: #1b1b1b; }
@@ -166,6 +167,7 @@ input::placeholder, textarea::placeholder { color: #777 !important; }
 
 @media (max-width: 760px) {
     .navbar { padding: 13px 17px !important; gap: 12px; }
+    .logo { justify-content: center; }
     .nav-links { justify-content: center; flex-wrap: wrap; gap: 2px !important; }
     .nav-links a { padding: 7px 9px; font-size: 12px; }
     .hero { min-height: 610px !important; }
